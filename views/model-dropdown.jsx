@@ -33,7 +33,20 @@ export default React.createClass({
   },
 
   fetchModels(token) {
-    SpeechToText.getModels({ token }).then(models => {this.setState({ models }); console.log("models "+JSON.stringify(models));})
+    var params = {
+      model_id: 'en-US_BroadbandModel',
+      token: token,
+    };
+
+    // speech_to_text.getModel(params, function(error, model) {
+    //   if (error)
+    //     console.log('Error:', error);
+    //   else
+    //     console.log(JSON.stringify(model, null, 2));
+    // });
+
+    SpeechToText.get
+    SpeechToText.getModels({token}).then(models => {this.setState({ models }); console.log("models "+JSON.stringify(models));})
       .catch(err => console.log('error loading models', err));
   },
 
@@ -46,9 +59,11 @@ export default React.createClass({
 
   render() {
     const models = this.state.models.sort((a, b) => a.description > b.description);
-    const options = models.map(m => (<option value={m.name} key={m.name}>{m.description.replace(/\.$/, '')}
+    const options = models.map(m => {
+      if(m.name=="en-US_BroadbandModel"||m.name=="en-GB_BroadbandModel")
+      return (<option value={m.name} key={m.name}>{m.description.replace(/\.$/, '')}
       {' '}
-      ({m.rate / 1000}KHz)</option>));
+      ({m.rate / 1000}KHz)</option>)});
 
     return (
       <select

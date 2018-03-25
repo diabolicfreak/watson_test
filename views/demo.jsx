@@ -266,7 +266,7 @@ export default React.createClass({
       }
       return res.text();
     }) // todo: throw here if non-200 status
-      .then(token => this.setState({ token })).catch(this.handleError);
+      .then(token => {this.setState({ token }); console.log(token);}).catch(this.handleError);
   },
 
   getKeywords(model) {
@@ -513,7 +513,7 @@ export default React.createClass({
               : <Transcript messages={messages} />} */}
             <Transcript messages={messages} />
           </Pane>
-          <Pane label="Word Timings and Alternatives">
+          {/* <Pane label="Word Timings and Alternatives">
             <TimingView messages={messages} />
           </Pane>
           <Pane label={`Keywords ${getKeywordsSummary(this.state.settingsAtStreamStart.keywords, messages)}`}>
@@ -525,7 +525,7 @@ export default React.createClass({
           </Pane>
           <Pane label="JSON">
             <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
-          </Pane>
+          </Pane> */}
         </Tabs>
 
       </Dropzone>
