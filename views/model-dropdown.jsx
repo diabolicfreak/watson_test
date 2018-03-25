@@ -33,7 +33,7 @@ export default React.createClass({
   },
 
   fetchModels(token) {
-    SpeechToText.getModels({ token }).then(models => this.setState({ models }))
+    SpeechToText.getModels({ token }).then(models => {this.setState({ models }); console.log("models "+JSON.stringify(models));})
       .catch(err => console.log('error loading models', err));
   },
 

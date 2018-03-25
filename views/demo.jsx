@@ -136,6 +136,7 @@ export default React.createClass({
     if (!file) {
       return;
     }
+    console.log("handleUserFile "+file);
     this.reset();
     this.setState({ audioSource: 'upload' });
     this.playFile(file);
@@ -234,6 +235,7 @@ export default React.createClass({
   },
 
   handleFormattedMessage(msg) {
+    console.log("msg "+JSON.stringify(msg));
     this.setState({ formattedMessages: this.state.formattedMessages.concat(msg) });
   },
 
@@ -419,7 +421,7 @@ export default React.createClass({
           </div>
         </div>
 
-        <h2 className="base--h2">Transcribe Audio</h2>
+        {/* <h2 className="base--h2">Transcribe Audio</h2>
 
         <ul className="base--ul">
           {micBullet}
@@ -429,9 +431,9 @@ export default React.createClass({
 
         <div className="smalltext">
           {'*Both US English broadband sample audio files are covered under the Creative Commons license.'}
-        </div>
+        </div> */}
 
-        <div style={{
+        {/* <div style={{
           paddingRight: '3em',
           paddingBottom: '2em',
         }}
@@ -440,7 +442,7 @@ export default React.createClass({
           <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#word_alternatives">word alternatives</a>, {' '}
           and <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#keyword_spotting">spotted keywords</a>. {' '}
           Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#speaker_labels">detect multiple speakers</a>; this may slow down performance.
-        </div>
+        </div> */}
         <div className="flex setup">
           <div className="column">
 
@@ -452,7 +454,7 @@ export default React.createClass({
               />
             </p>
 
-            <p className={this.supportsSpeakerLabels() ? 'base--p' : 'base--p_light'}>
+            {/* <p className={this.supportsSpeakerLabels() ? 'base--p' : 'base--p_light'}>
               <input
                 className="base--checkbox"
                 type="checkbox"
@@ -464,10 +466,10 @@ export default React.createClass({
               <label className="base--inline-label" htmlFor="speaker-labels">
                 Detect multiple speakers {this.supportsSpeakerLabels() ? '' : ' (Not supported on current model)'}
               </label>
-            </p>
+            </p> */}
 
           </div>
-          <div className="column">
+          {/* <div className="column">
 
             <p>Keywords to spot: <input
               value={this.getKeywordsArrUnique().join()}
@@ -478,7 +480,7 @@ export default React.createClass({
               className="base--input"
             /></p>
 
-          </div>
+          </div> */}
         </div>
 
 
@@ -506,9 +508,10 @@ export default React.createClass({
 
         <Tabs selected={0}>
           <Pane label="Text">
-            {this.state.settingsAtStreamStart.speakerLabels
+            {/* {this.state.settingsAtStreamStart.speakerLabels
               ? <SpeakersView messages={messages} />
-              : <Transcript messages={messages} />}
+              : <Transcript messages={messages} />} */}
+            <Transcript messages={messages} />
           </Pane>
           <Pane label="Word Timings and Alternatives">
             <TimingView messages={messages} />
