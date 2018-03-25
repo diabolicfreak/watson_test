@@ -421,28 +421,6 @@ export default React.createClass({
           </div>
         </div>
 
-        {/* <h2 className="base--h2">Transcribe Audio</h2>
-
-        <ul className="base--ul">
-          {micBullet}
-          <li className="base--li">{'Upload pre-recorded audio (.mp3, .mpeg, .wav, .flac, or .opus only).'}</li>
-          <li className="base--li">Play one of the sample audio files.*</li>
-        </ul>
-
-        <div className="smalltext">
-          {'*Both US English broadband sample audio files are covered under the Creative Commons license.'}
-        </div> */}
-
-        {/* <div style={{
-          paddingRight: '3em',
-          paddingBottom: '2em',
-        }}
-        >
-          The returned result includes the recognized text, {' '}
-          <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#word_alternatives">word alternatives</a>, {' '}
-          and <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#keyword_spotting">spotted keywords</a>. {' '}
-          Some models can <a className="base--a" href="https://console.bluemix.net/docs/services/speech-to-text/output.html#speaker_labels">detect multiple speakers</a>; this may slow down performance.
-        </div> */}
         <div className="flex setup">
           <div className="column">
 
@@ -454,33 +432,8 @@ export default React.createClass({
               />
             </p>
 
-            {/* <p className={this.supportsSpeakerLabels() ? 'base--p' : 'base--p_light'}>
-              <input
-                className="base--checkbox"
-                type="checkbox"
-                checked={this.state.speakerLabels}
-                onChange={this.handleSpeakerLabelsChange}
-                disabled={!this.supportsSpeakerLabels()}
-                id="speaker-labels"
-              />
-              <label className="base--inline-label" htmlFor="speaker-labels">
-                Detect multiple speakers {this.supportsSpeakerLabels() ? '' : ' (Not supported on current model)'}
-              </label>
-            </p> */}
 
           </div>
-          {/* <div className="column">
-
-            <p>Keywords to spot: <input
-              value={this.getKeywordsArrUnique().join()}
-              onChange={this.handleKeywordsChange}
-              type="text"
-              id="keywords"
-              placeholder="Type comma separated keywords here (optional)"
-              className="base--input"
-            /></p>
-
-          </div> */}
         </div>
 
 
@@ -508,24 +461,8 @@ export default React.createClass({
 
         <Tabs selected={0}>
           <Pane label="Text">
-            {/* {this.state.settingsAtStreamStart.speakerLabels
-              ? <SpeakersView messages={messages} />
-              : <Transcript messages={messages} />} */}
             <Transcript messages={messages} />
           </Pane>
-          {/* <Pane label="Word Timings and Alternatives">
-            <TimingView messages={messages} />
-          </Pane>
-          <Pane label={`Keywords ${getKeywordsSummary(this.state.settingsAtStreamStart.keywords, messages)}`}>
-            <Keywords
-              messages={messages}
-              keywords={this.state.settingsAtStreamStart.keywords}
-              isInProgress={!!this.state.audioSource}
-            />
-          </Pane>
-          <Pane label="JSON">
-            <JSONView raw={this.state.rawMessages} formatted={this.state.formattedMessages} />
-          </Pane> */}
         </Tabs>
 
       </Dropzone>

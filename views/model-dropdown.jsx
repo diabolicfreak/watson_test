@@ -33,19 +33,6 @@ export default React.createClass({
   },
 
   fetchModels(token) {
-    var params = {
-      model_id: 'en-US_BroadbandModel',
-      token: token,
-    };
-
-    // speech_to_text.getModel(params, function(error, model) {
-    //   if (error)
-    //     console.log('Error:', error);
-    //   else
-    //     console.log(JSON.stringify(model, null, 2));
-    // });
-
-    SpeechToText.get
     SpeechToText.getModels({token}).then(models => {this.setState({ models }); console.log("models "+JSON.stringify(models));})
       .catch(err => console.log('error loading models', err));
   },
